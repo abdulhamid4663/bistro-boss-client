@@ -16,6 +16,37 @@ const Users = () => {
         }
     });
 
+    const handleAdminUser = user => {
+        const userInfo = {
+            name: user.name,
+            email: user.email,
+        }
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, appoint as a admin"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.patch(`/users/admin/${user._id}`, userInfo)
+                    .then(res => {
+                        console.log(res.data);
+                        refetch()
+
+                        Swal.fire({
+                            title: "Appointed as Admin!",
+                            text: `${user.name} is Admin Now!`,
+                            icon: "success"
+                        });
+                    })
+            }
+        });
+    }
+
     const handleDeleteUser = id => {
         Swal.fire({
             title: "Are you sure?",
@@ -27,23 +58,20 @@ const Users = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                //   Swal.fire({
-                //     title: "Deleted!",
-                //     text: "Your file has been deleted.",
-                //     icon: "success"
-                //   });
                 axiosSecure.delete(`/users/${id}`)
                     .then(res => {
                         console.log(res.data);
                         refetch()
+
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: `Users is Deleted Successfully`,
+                            icon: "success"
+                        });
                     })
             }
         });
-    }
-
-    const handleAdminUser = id => {
-        console.log(id);
-    }
+    };
 
     return (
         <div className="py-8">
@@ -75,9 +103,13 @@ const Users = () => {
                                             <td>{user.name}</td>
                                             <td>{user.email}</td>
                                             <td>
-                                                <button onClick={() => handleAdminUser(user?._id)} className="btn bg-[#D1A054] text-xl text-white">
-                                                    <FaUsers />
-                                                </button>
+                                                {
+                                                    user?.role === 'admin' ? "Admin"
+                                                        :
+                                                        <button onClick={() => handleAdminUser(user)} className="btn bg-[#D1A054] text-xl text-white">
+                                                            <FaUsers />
+                                                        </button>
+                                                }
                                             </td>
                                             <td>
                                                 <button onClick={() => handleDeleteUser(user?._id)} className="btn btn-error text-white">
