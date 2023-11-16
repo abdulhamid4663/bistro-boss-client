@@ -93,7 +93,7 @@ const Navbar = () => {
                             {navLinks}
                         </ul>
                     </div>
-                    <Link to='/dashboard'>
+                    <Link to='/dashboard/myCart'>
                         <div className="dropdown dropdown-end">
                             <label tabIndex={0} className="btn btn-ghost btn-circle">
                                 <div className="indicator">

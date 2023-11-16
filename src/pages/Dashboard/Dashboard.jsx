@@ -9,6 +9,7 @@ import { ImSpoonKnife } from "react-icons/im";
 
 const Dashboard = () => {
 
+    // TODO: get isAdmin value from the database
     const isAdmin = true;
 
     return (
@@ -74,51 +75,6 @@ const Dashboard = () => {
                                         }
                                     >
                                         <FaUsers /> ALL USERS
-                                    </NavLink>
-                                </div>
-                            </div>
-                            <hr className="my-12" />
-                            <div className="pl-[76px]">
-                                <div className="flex flex-col gap-4 max-w-fit">
-                                    <NavLink
-                                        to="/"
-                                        className={({ isActive }) =>
-                                            isActive
-                                                ? "flex items-center gap-2 text-base"
-                                                : "flex items-center gap-2 text-base"
-                                        }
-                                    >
-                                        <AiFillHome /> HOME
-                                    </NavLink>
-                                    <NavLink
-                                        to="/ourMenu"
-                                        className={({ isActive }) =>
-                                            isActive
-                                                ? "flex items-center gap-2 text-base"
-                                                : "flex items-center gap-2 text-base"
-                                        }
-                                    >
-                                        <IoWallet /> MENU
-                                    </NavLink>
-                                    <NavLink
-                                        to="/ourShop"
-                                        className={({ isActive }) =>
-                                            isActive
-                                                ? "flex items-center gap-2 text-base"
-                                                : "flex items-center gap-2 text-base"
-                                        }
-                                    >
-                                        <FaCalendarAlt /> SHOP
-                                    </NavLink>
-                                    <NavLink
-                                        to="/contact"
-                                        className={({ isActive }) =>
-                                            isActive
-                                                ? "flex items-center gap-2 text-base"
-                                                : "flex items-center gap-2 text-base"
-                                        }
-                                    >
-                                        <IoWallet /> CONTACT
                                     </NavLink>
                                 </div>
                             </div>
@@ -195,53 +151,53 @@ const Dashboard = () => {
                                     </NavLink>
                                 </div>
                             </div>
-                            <hr className="my-12" />
-                            <div className="pl-[76px]">
-                                <div className="flex flex-col gap-4 max-w-fit">
-                                    <NavLink
-                                        to="/"
-                                        className={({ isActive }) =>
-                                            isActive
-                                                ? "flex items-center gap-2 text-base"
-                                                : "flex items-center gap-2 text-base"
-                                        }
-                                    >
-                                        <AiFillHome /> HOME
-                                    </NavLink>
-                                    <NavLink
-                                        to="/ourMenu"
-                                        className={({ isActive }) =>
-                                            isActive
-                                                ? "flex items-center gap-2 text-base"
-                                                : "flex items-center gap-2 text-base"
-                                        }
-                                    >
-                                        <IoWallet /> MENU
-                                    </NavLink>
-                                    <NavLink
-                                        to="/ourShop"
-                                        className={({ isActive }) =>
-                                            isActive
-                                                ? "flex items-center gap-2 text-base"
-                                                : "flex items-center gap-2 text-base"
-                                        }
-                                    >
-                                        <FaCalendarAlt /> SHOP
-                                    </NavLink>
-                                    <NavLink
-                                        to="/contact"
-                                        className={({ isActive }) =>
-                                            isActive
-                                                ? "flex items-center gap-2 text-base"
-                                                : "flex items-center gap-2 text-base"
-                                        }
-                                    >
-                                        <IoWallet /> CONTACT
-                                    </NavLink>
-                                </div>
-                            </div>
                         </>
                 }
+                <hr className="my-12" />
+                <div className="pl-[76px]">
+                    <div className="flex flex-col gap-4 max-w-fit">
+                        <NavLink
+                            to="/"
+                            className={({ isActive }) =>
+                                isActive
+                                    ? "flex items-center gap-2 text-base"
+                                    : "flex items-center gap-2 text-base"
+                            }
+                        >
+                            <AiFillHome /> HOME
+                        </NavLink>
+                        <NavLink
+                            to="/ourMenu"
+                            className={({ isActive }) =>
+                                isActive
+                                    ? "flex items-center gap-2 text-base"
+                                    : "flex items-center gap-2 text-base"
+                            }
+                        >
+                            <IoWallet /> MENU
+                        </NavLink>
+                        <NavLink
+                            to="/ourShop"
+                            className={({ isActive }) =>
+                                isActive
+                                    ? "flex items-center gap-2 text-base"
+                                    : "flex items-center gap-2 text-base"
+                            }
+                        >
+                            <FaCalendarAlt /> SHOP
+                        </NavLink>
+                        <NavLink
+                            to="/contact"
+                            className={({ isActive }) =>
+                                isActive
+                                    ? "flex items-center gap-2 text-base"
+                                    : "flex items-center gap-2 text-base"
+                            }
+                        >
+                            <IoWallet /> CONTACT
+                        </NavLink>
+                    </div>
+                </div>
             </div>
             <div className="md:col-span-4 px-32">
                 <Outlet />

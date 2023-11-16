@@ -1,20 +1,34 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import img from "../../assets/others/authentication2.png";
 import useAuth from "../../hooks/useAuth";
+import useAxios from "../../hooks/useAxios";
+import Social from "../../components/Shared/Social/Social";
 
 const SignUp = () => {
     const { createUser } = useAuth();
+    const axios = useAxios();
+    const navigate = useNavigate()
 
     const handleOnSubmit = e => {
         e.preventDefault();
         const form = e.target;
-        // const name = form.name.value;
+        const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
+
+        const userInfo = {
+            name,
+            email,
+        }
 
         createUser(email, password)
         .then(()=> {
             alert("successfully registered");
+            axios.post("/users", userInfo)
+            .then(res => {
+                console.log(res.data);
+            })
+            navigate('/')
         })
         .catch(error => {
             console.log(error.message);
@@ -55,6 +69,9 @@ const SignUp = () => {
                     <div className="text-center">
                         <p className="text-[#D1A054] text-xl font-medium mb-6">Already registered? <Link to="/signIn" className="font-bold">Go to log in</Link></p>
                         <p className="text-[#444] text-xl font-medium">Or sign up with</p>
+                    </div>
+                    <div className="p-[2rem]">
+                        <Social />
                     </div>
                 </div>
             </div>

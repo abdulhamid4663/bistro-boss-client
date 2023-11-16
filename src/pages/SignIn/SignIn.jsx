@@ -3,6 +3,7 @@ import img from "../../assets/others/authentication2.png"
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { useEffect } from "react";
 import useAuth from "../../hooks/useAuth";
+import Social from "../../components/Shared/Social/Social";
 
 const SignIn = () => {
     const { loginUser } = useAuth();
@@ -69,6 +70,9 @@ const SignIn = () => {
                     <div className="text-center">
                         <p className="text-[#D1A054] text-xl font-medium mb-6">New here? <Link to="/signUp" className="font-bold">Create a New Account</Link></p>
                         <p className="text-[#444] text-xl font-medium">Or sign in with</p>
+                    </div>
+                    <div className="p-[2rem]">
+                        <Social />
                     </div>
                 </div>
             </div>
