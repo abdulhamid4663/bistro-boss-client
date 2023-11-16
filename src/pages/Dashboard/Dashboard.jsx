@@ -6,12 +6,13 @@ import { FaShoppingCart } from "react-icons/fa";
 import { MdReviews } from "react-icons/md";
 import { IoBookmarks } from "react-icons/io5";
 import { ImSpoonKnife } from "react-icons/im";
+import useAdmin from "../../hooks/useAdmin";
 
 const Dashboard = () => {
 
     // TODO: get isAdmin value from the database
-    const isAdmin = true;
-
+    const [isAdmin] = useAdmin();
+    
     return (
         <div className="grid grid-cols-5 bg-[#F6F6F6]">
             <div className="bg-[#D1A054] text-center py-8 h-[100vh]">
