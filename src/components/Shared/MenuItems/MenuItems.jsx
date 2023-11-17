@@ -7,7 +7,7 @@ const MenuItems = ({ food }) => {
     return (
         <div className="flex gap-8 items-center">
 
-            <img src={image} alt="" className="w-32 h-full rounded-bl-[50%] rounded-br-[50%] rounded-tr-[50%]" />
+            <img src={image} alt="" className="w-full max-w-[128px] h-[100px] rounded-bl-[50%] rounded-br-[50%] rounded-tr-[50%]" />
 
             <div className="flex">
                 <div>

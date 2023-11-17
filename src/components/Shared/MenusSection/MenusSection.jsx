@@ -1,27 +1,20 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from "react";
 import MenuItems from "../MenuItems/MenuItems";
 import { Link } from "react-router-dom";
 import Container from "../Container/Container";
+import useMenu from "../../../hooks/useMenu";
 
 
 const MenusSection = ({ category }) => {
-    const [foods, setFoods] = useState([])
+    const { menus } = useMenu();
 
-    useEffect(() => {
-        fetch('menu.json')
-            .then(res => res.json())
-            .then(data => {
-                const popularMenu = data.filter(food => food.category === category);
-                setFoods(popularMenu)
-            })
-    }, [category])
+    const menuItems = menus.filter(food => food.category === category);
 
     return (
         <Container>
             <div className="grid grid-cols-2 gap-6 mb-12">
                 {
-                    foods.map(food => <MenuItems key={food._id} food={food} />)
+                    menuItems.map(food => <MenuItems key={food._id} food={food} />)
                 }
             </div>
             <div className="text-center mb-11">

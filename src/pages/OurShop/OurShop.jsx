@@ -2,25 +2,17 @@ import PageBanner from "../../components/Shared/PageBanner/PageBanner";
 import bannerImg from "../../assets/shop/banner2.jpg"
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import { useEffect, useState } from "react";
 import Container from "../../components/Shared/Container/Container";
 import FoodCard from "../../components/FoodCard/FoodCard";
+import useMenu from "../../hooks/useMenu";
 
 const OurShop = () => {
-    const [foods, setFoods] = useState([])
-    const salads = foods.filter(food => food.category === "salad")
-    const pizzas = foods.filter(food => food.category === "pizza")
-    const soups = foods.filter(food => food.category === "soup")
-    const desserts = foods.filter(food => food.category === "dessert")
-    const drinks = foods.filter(food => food.category === "drinks")
-
-    useEffect(() => {
-        fetch('menu.json')
-            .then(res => res.json())
-            .then(data => {
-                setFoods(data)
-            })
-    }, [])
+    const {menus} = useMenu()
+    const salads = menus.filter(food => food.category === "salad")
+    const pizzas = menus.filter(food => food.category === "pizza")
+    const soups = menus.filter(food => food.category === "soup")
+    const desserts = menus.filter(food => food.category === "dessert")
+    const drinks = menus.filter(food => food.category === "drinks")
 
     return (
         <div>

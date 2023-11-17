@@ -9,7 +9,7 @@ const MyCart = () => {
 
     const handleDeleteCart = id => {
 
-        axios.delete(`/cart/${id}`)
+        axios.delete(`/carts/${id}`)
             .then(res => {
                 console.log(res.data);
                 refetch()

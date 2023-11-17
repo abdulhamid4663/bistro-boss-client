@@ -33,7 +33,7 @@ const FoodCard = ({ food }) => {
 
     return (
         <div className="bg-[#F3F3F3]">
-            <figure><img src={food?.image} alt="" className="w-full" /></figure>
+            <figure><img src={food?.image} alt="" className="w-full h-[283px] object-cover" /></figure>
             <div className="h-[250px] flex flex-col p-8">
                 <h2 className="text-[#151515] text-2xl font-semibold text-center pb-2">{food?.name}</h2>
                 <p className="text-[#737373] text-base flex-grow">{food?.recipe}</p>

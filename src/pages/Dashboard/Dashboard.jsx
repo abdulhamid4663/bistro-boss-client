@@ -15,7 +15,7 @@ const Dashboard = () => {
     
     return (
         <div className="grid grid-cols-5 bg-[#F6F6F6]">
-            <div className="bg-[#D1A054] text-center py-8 h-[100vh]">
+            <div className="bg-[#D1A054] text-center py-8 min-h-[100vh]">
                 {
                     isAdmin ?
                         <>
@@ -28,7 +28,7 @@ const Dashboard = () => {
                             <div className="pl-[76px]">
                                 <div className="flex flex-col gap-4 max-w-fit">
                                     <NavLink
-                                        to="/dashboard/userHome"
+                                        to="/dashboard/adminHome"
                                         className={({ isActive }) =>
                                             isActive
                                                 ? "flex items-center gap-2 text-base text-white"
@@ -38,7 +38,7 @@ const Dashboard = () => {
                                         <AiFillHome /> ADMIN HOME
                                     </NavLink>
                                     <NavLink
-                                        to="/dashboard/reservation"
+                                        to="/dashboard/addItems"
                                         className={({ isActive }) =>
                                             isActive
                                                 ? "flex items-center gap-2 text-base text-white"
@@ -48,7 +48,7 @@ const Dashboard = () => {
                                         <ImSpoonKnife /> ADD ITEMS
                                     </NavLink>
                                     <NavLink
-                                        to="/dashboard/paymentHistory"
+                                        to="/dashboard/manageItems"
                                         className={({ isActive }) =>
                                             isActive
                                                 ? "flex items-center gap-2 text-base text-white"
@@ -58,7 +58,7 @@ const Dashboard = () => {
                                         <FaListUl /> MANAGE ITEMS
                                     </NavLink>
                                     <NavLink
-                                        to="/dashboard/myCart"
+                                        to="/dashboard/manageBookings"
                                         className={({ isActive }) =>
                                             isActive
                                                 ? "flex items-center gap-2 text-base text-white"

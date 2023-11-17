@@ -9,6 +9,8 @@ import Dashboard from "../pages/Dashboard/Dashboard";
 import MyCart from "../components/MyCart/MyCart";
 import PrivateRoute from "./PrivateRoute";
 import Users from "../components/Users/Users";
+import AddItems from "../components/AddItems/AddItems";
+import AdminRoute from "./AdminRoute";
 
 const router = createBrowserRouter([
     {
@@ -46,6 +48,14 @@ const router = createBrowserRouter([
         element: <PrivateRoute><Dashboard /></PrivateRoute>,
         children: [
             {
+                path: "addItems",
+                element: <AdminRoute><AddItems /></AdminRoute>
+            },
+            {
+                path: "users",
+                element: <AdminRoute><Users /></AdminRoute>
+            },
+            {
                 path: "userHome",
                 element: <div><h1>This is User Home.</h1></div>
             },
@@ -68,10 +78,6 @@ const router = createBrowserRouter([
             {
                 path: "myBooking",
                 element: <div><h1>This is my booking.</h1></div>
-            },
-            {
-                path: "users",
-                element: <Users />
             },
         ]
     },
