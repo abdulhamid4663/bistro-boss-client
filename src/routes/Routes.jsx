@@ -13,6 +13,7 @@ import AddItems from "../components/AddItems/AddItems";
 import AdminRoute from "./AdminRoute";
 import ManageItems from "../components/ManageItems/ManageItems";
 import UpdateItem from "../components/UpdateItem/UpdateItem";
+import Payment from "../components/Payment/Payment";
 
 const router = createBrowserRouter([
     {
@@ -49,6 +50,7 @@ const router = createBrowserRouter([
         path: "/dashboard",
         element: <PrivateRoute><Dashboard /></PrivateRoute>,
         children: [
+            // only admins related routes
             {
                 path: "addItems",
                 element: <AdminRoute><AddItems /></AdminRoute>
@@ -66,6 +68,7 @@ const router = createBrowserRouter([
                 path: "users",
                 element: <AdminRoute><Users /></AdminRoute>
             },
+            // user related routes
             {
                 path: "userHome",
                 element: <div><h1>This is User Home.</h1></div>
@@ -90,6 +93,10 @@ const router = createBrowserRouter([
                 path: "myBooking",
                 element: <div><h1>This is my booking.</h1></div>
             },
+            {
+                path: "payment",
+                element: <Payment />
+            }
         ]
     },
 ])

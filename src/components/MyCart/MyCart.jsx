@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import useAxios from "../../hooks/useAxios";
 import useCart from "../../hooks/useCart";
 import SectionHeading from "../Shared/Section_Heading/SectionHeading";
@@ -31,7 +32,15 @@ const MyCart = () => {
                 <div className="flex justify-between items-center mb-6">
                     <h1 className="text-[#151515] text-[32px] font-bold">Total orders: {cart?.length}</h1>
                     <h1 className="text-[#151515] text-[32px] font-bold">total price: ${totalPrice}</h1>
-                    <button className="btn bg-[#D1A054] rounded-lg text-xl font-bold text-white">PAY</button>
+                    {
+                        cart?.length
+                            ?
+                            <Link to='/dashboard/payment'>
+                                <button className="btn bg-[#D1A054] rounded-lg text-xl font-bold text-white">PAY</button>
+                            </Link>
+                            :
+                            <button disabled className="btn bg-[#D1A054] rounded-lg text-xl font-bold text-white">PAY</button>
+                    }
                 </div>
                 <div>
                     <div className="overflow-x-auto">

@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 
+import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import useAxios from "../../hooks/useAxios";
 import useCart from "../../hooks/useCart";
@@ -21,10 +22,16 @@ const FoodCard = ({ food }) => {
             category: food.category,
         };
 
-        axios.post('/cart', cart)
-            .then(res => {
-                console.log(res.data);
+        axios.post('/carts', cart)
+            .then(() => {
                 refetch()
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `${food.name} has been added to cart`,
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
             })
             .catch(error => {
                 console.error(error.message);
